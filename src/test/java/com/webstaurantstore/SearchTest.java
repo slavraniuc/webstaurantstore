@@ -8,7 +8,7 @@ import org.testng.asserts.SoftAssert;
 public class SearchTest extends WebTest {
     private final SoftAssert softAssertion = new SoftAssert();
 
-    private void checkProductTitles() {
+    private void checkProductsTitle() {
         for (SearchResultsProductComponent product : mainPage.getSearchResults()) {
             String productDescription = product.getDescription();
             softAssertion.assertTrue(
@@ -23,14 +23,14 @@ public class SearchTest extends WebTest {
     }
 
     @Test
-    public void searchBy() {
+    public void searchForProducts() {
         mainPage.get();
         mainPage.searchForProduct("stainless work table");
 
         // Check each page that the products has the word Table in the description
         boolean allPagesAreChecked = false;
         while (!allPagesAreChecked) {
-            checkProductTitles();
+            checkProductsTitle();
             if (mainPage.getCurrentPage() < mainPage.getNumberOfPages()) {
                 mainPage.selectNextPage();
             } else allPagesAreChecked = true;
