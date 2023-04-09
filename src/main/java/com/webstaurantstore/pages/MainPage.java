@@ -12,7 +12,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class MainPage {
-
     private static final String PAGE_URL = "https://www.webstaurantstore.com";
     private final WebDriver driver;
     By productsBy = By.cssSelector("div#ProductBoxContainer");
